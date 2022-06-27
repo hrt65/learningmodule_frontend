@@ -14,3 +14,9 @@ class CourseModel
   }
 
 }
+
+//Assignemnt
+//Videolesson
+//Quiz
+//Article
+

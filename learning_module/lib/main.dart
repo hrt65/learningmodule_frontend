@@ -4,6 +4,7 @@ import 'package:learning_module/Courses/courselist.dart';
 
 
 final navigatorKeyMain = GlobalKey<NavigatorState>();
+final server_url = 'http://3.13.31.173:8000';
 
 void main() {
   runApp(const MyApp());

@@ -21,7 +21,7 @@ onRetry() {
           child: Material(
             color: Colors.transparent,
             child: Text(
-              'Check yout internet connection',
+              'Check your internet connection',
               style: TextStyle(fontSize: 24),
             ),
           ),
@@ -37,16 +37,18 @@ Future getCourseList() async {
   failureNavState = null;
   final http.Response response = await retry(
         () => http.get(
-      Uri.parse('https://server_url//'),
+      Uri.parse('${server_url}/Courses/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         // "Authorization": "Token " + token,
       },
+
     ),
     maxAttempts: maxAttempts,
     onRetry: (e) => onRetry(),
   );
   failureNavState?.pop();
+  print(response.body);
   if (response.statusCode == 200) {
 
     final data = jsonDecode(response.body)  ;
