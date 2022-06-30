@@ -15,7 +15,7 @@ onRetry() {
     failureNavState = navigatorKeyMain.currentState;
     showDialog(
       context: navigatorKeyMain.currentContext,
-      builder: (context) => Center(
+      builder: (BuildContext context) => Center(
         child: Padding(
           padding: EdgeInsets.only(top: MediaQuery.of(context).size.height / 3),
           child: Material(
@@ -37,7 +37,7 @@ Future getCourseList() async {
   failureNavState = null;
   final http.Response response = await retry(
         () => http.get(
-      Uri.parse('${server_url}/Courses/'),
+      Uri.parse('${server_url}/courseapi/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         // "Authorization": "Token " + token,
