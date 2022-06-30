@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:learning_module/Courses/courselist.dart';
-
+import 'package:learning_module/Lessons/Quiz/quizmodel.dart';
+import 'package:learning_module/Lessons/Quiz/quizapis.dart';
 
 
 final navigatorKeyMain = GlobalKey<NavigatorState>();
@@ -8,9 +9,12 @@ final server_url = 'http://3.13.31.173:8000';
 
 void main() {
   runApp(const MyApp());
+  getQuiz();
 }
 
 class MyApp extends StatelessWidget {
+  // QuizModel quiz;
+  // print(quiz);
   const MyApp({Key? key}) : super(key: key);
 
   // This widget is the root of your application.
@@ -34,7 +38,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
-
-
