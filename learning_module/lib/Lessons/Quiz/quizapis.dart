@@ -6,6 +6,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import'package:learning_module/Courses/coursemodel.dart';
+import'package:learning_module/Lessons/Quiz/quizmodel.dart';
 import 'dart:io';
 
 int maxAttempts = 5;
@@ -33,11 +34,11 @@ onRetry() {
 
 
 
-Future getCourseList() async {
+Future getQuiz() async {
   failureNavState = null;
   final http.Response response = await retry(
         () => http.get(
-      Uri.parse('${server_url}/courseapi/'),
+      Uri.parse('${server_url}/Quizapi/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         // "Authorization": "Token " + token,
@@ -52,12 +53,12 @@ Future getCourseList() async {
   if (response.statusCode == 200) {
 
     final data = jsonDecode(response.body)  ;
-    List<CourseModel> courselist = data.map<CourseModel>((json)=>CourseModel.fromJson(json)).toList();
-    return courselist;
-
+    List<QuizModel> quizlist = data.map<QuizModel>((json)=>QuizModel.fromJson(json)).toList();
+    return quizlist;
+    
 
   } else {
 
-    throw Exception("course api fail");
+    throw Exception("quiz api fail");
   }
 }
