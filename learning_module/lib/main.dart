@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:learning_module/Courses/courselist.dart';
+import 'package:learning_module/Courses/src/pages/home_page.dart';
+import 'package:learning_module/Courses/src/pages/recomended_page.dart';
 import 'package:learning_module/Lessons/Quiz/quizmodel.dart';
 import 'package:learning_module/Lessons/Quiz/quizapis.dart';
-
+import 'package:learning_module/route_generate.dart';
 
 final navigatorKeyMain = GlobalKey<NavigatorState>();
 final server_url = 'http://3.13.31.173:8000';
@@ -34,7 +36,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const CourseList(),
+      initialRoute: RecomendedPage.routeName,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }

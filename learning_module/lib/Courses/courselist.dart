@@ -6,6 +6,7 @@ import 'package:learning_module/Courses/courseapis.dart';
 import 'package:learning_module/Courses/coursemodel.dart';
 
 class CourseList extends StatelessWidget {
+  static const routeName = 'courselist';
   const CourseList({Key key}) : super(key: key);
 
 

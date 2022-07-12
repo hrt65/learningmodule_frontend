@@ -61,3 +61,32 @@ Future getCourseList() async {
     throw Exception("course api fail");
   }
 }
+
+Future getLessonList(String courseid) async {
+  failureNavState = null;
+  final http.Response response = await retry(
+        () => http.get(
+      Uri.parse('${server_url}/courseapi/'),
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+        // "Authorization": "Token " + token,
+      },
+
+    ),
+    maxAttempts: maxAttempts,
+    onRetry: (e) => onRetry(),
+  );
+  failureNavState?.pop();
+  print(response.body);
+  if (response.statusCode == 200) {
+
+    final data = jsonDecode(response.body)  ;
+    List<LessonModel> lessonlist = data.map<LessonModel>((json)=>LessonModel.fromJson(json)).toList();
+    return lessonlist;
+
+
+  } else {
+
+    throw Exception("course api fail");
+  }
+}
