@@ -11,7 +11,7 @@ import 'package:learning_module/Courses/src/theme/theme.dart';
 class LessonList extends StatelessWidget {
   static const routeName = 'lessonlist';
   String courseid;
-  LessonList({Key key,int courseid}) : super(key: key);
+  LessonList({Key key,this.courseid}) : super(key: key);
 
 
 
