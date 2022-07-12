@@ -34,11 +34,11 @@ onRetry() {
 
 
 
-Future getQuiz() async {
+Future getQuiz( int lessonid ) async {
   failureNavState = null;
   final http.Response response = await retry(
         () => http.get(
-      Uri.parse('${server_url}/Quizapi/'),
+      Uri.parse('${server_url}/Quizapi/${lessonid}/'),
       headers: {
         'Content-Type': 'application/json; charset=UTF-8',
         // "Authorization": "Token " + token,

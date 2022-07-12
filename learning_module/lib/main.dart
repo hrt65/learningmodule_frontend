@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:learning_module/Courses/courselist.dart';
+// import 'package:learning_module/Lessons/Quiz/home.dart';
 import 'package:learning_module/Lessons/Quiz/quizmodel.dart';
 import 'package:learning_module/Lessons/Quiz/quizapis.dart';
-
+import 'package:learning_module/Lessons/Quiz/home1.dart';
 
 final navigatorKeyMain = GlobalKey<NavigatorState>();
 final server_url = 'http://3.13.31.173:8000';
 
 void main() {
   runApp(const MyApp());
-  getQuiz();
+  //getQuiz();
 }
 
 class MyApp extends StatelessWidget {
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const CourseList(),
+      // home: const CourseList(),
+      home: QuizQuestions(),
     );
   }
 }
