@@ -17,6 +17,7 @@ class VideoPlayerApp extends StatelessWidget {
   }
 }
 
+
 class VideoPlayerScreen extends StatefulWidget {
   const VideoPlayerScreen({super.key});
 
