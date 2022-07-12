@@ -10,6 +10,7 @@ import 'dart:io';
 
 int maxAttempts = 5;
 NavigatorState failureNavState;
+
 onRetry() {
   if (failureNavState == null) {
     failureNavState = navigatorKeyMain.currentState;
@@ -54,8 +55,6 @@ Future getCourseList() async {
     final data = jsonDecode(response.body)  ;
     List<CourseModel> courselist = data.map<CourseModel>((json)=>CourseModel.fromJson(json)).toList();
     return courselist;
-
-
   } else {
 
     throw Exception("course api fail");
